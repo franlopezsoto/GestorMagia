@@ -61,7 +61,6 @@ public class HechizoService {
         return false;
     }
 
-    // Métodos personalizados
 
     public List<HechizoDto> buscarHechizosPorTipo(String tipo) {
         return hechizoRepository.findByTipo(tipo).stream()

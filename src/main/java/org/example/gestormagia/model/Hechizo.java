@@ -6,8 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Objects;
 
-
-
 @Entity
 public class Hechizo {
 
@@ -18,15 +16,17 @@ public class Hechizo {
     private String tipo;
     private String descripcion;
 
+    // No-argument constructor
     public Hechizo() {}
 
+    // Constructor with parameters
     public Hechizo(String nombre, String tipo, String descripcion) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.descripcion = descripcion;
     }
 
-    // Getters y setters
+    // Getters and setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -62,4 +62,3 @@ public class Hechizo {
                 '}';
     }
 }
-

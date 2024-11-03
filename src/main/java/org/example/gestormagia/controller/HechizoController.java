@@ -11,14 +11,13 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/hechizos")
+@RequestMapping("/api/hechizos")
 public class HechizoController {
 
     @Autowired
     private HechizoService hechizoService;
 
     // CRUD Endpoints
-
     @GetMapping
     public List<HechizoDto> obtenerHechizos() {
         return hechizoService.obtenerHechizos();
