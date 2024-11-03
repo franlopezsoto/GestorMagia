@@ -1,9 +1,11 @@
 package org.example.gestormagia.service;
 
 import org.example.gestormagia.dto.HechizoDto;
+import org.example.gestormagia.exception.HechizoNotFoundException;
 import org.example.gestormagia.model.Hechizo;
 import org.example.gestormagia.repository.HechizoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -86,4 +88,17 @@ public class HechizoService {
         }
         return false;
     }
+    @Async("taskExecutor")
+    public void performAsyncTask() {
+        // Lógica de la tarea asíncrona
+        System.out.println("Tarea asíncrona ejecutada por: " + Thread.currentThread().getName());
+    }
+    @Autowired
+    private HechizoRepository HechizoRepository;
+
+    public Hechizo getHechizoById(Long id) {
+        return hechizoRepository.findById(id)
+                .orElseThrow(() -> new HechizoNotFoundException("Hechizo not found with id: " + id));
+    }
+
 }
